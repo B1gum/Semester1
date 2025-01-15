@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+\usepackage[danish]{babel}
+\usepackage{amsfonts, amssymb, mathtools, amsthm, amsmath}
+\usepackage{graphicx, pgfplots}
+\usepackage{url}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{sagetex}
+
+%loaded last
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{siunitx}
+  \sisetup{exponent-product = \cdot,
+    output-decimal-marker = {,}}
+
+%Giles Castelles incfig
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[2][1]{%
+  \def\svgwidth{#1\columnwidth}
+  \import{../figures/}{#2.pdf_tex}
+}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyfoot[R]{\thepage}
+\fancyhead[C]{\leftmark}
+
+\pgfplotsset{compat=newest}
+
+\pgfplotsset{every axis/.append style={
+  axis x line=middle,    % put the x axis in the middle
+  axis y line=middle,    % put the y axis in the middle
+  axis line style={<->,color=black}, % arrows on the axis
+}}
+
+\usepackage{thmtools}
+\usepackage{tcolorbox}
+  \tcbuselibrary{skins, breakable}
+  \tcbset{
+    space to upper=1em,
+    space to lower=1em,
+  }
+
+\theoremstyle{definition}
+
+\newtcolorbox[auto counter]{definition}[1][]{%
+  colframe=ForestGreen,  %frame color
+  colback=ForestGreen!5, %background color
+  colbacktitle=ForestGreen!25, %background color for title
+  coltitle=ForestGreen!70!black,  %title color
+  fonttitle=\bfseries\sffamily, %title font
+  left=1em,              %space on left side in box,
+  enhanced,              %more options
+  frame hidden,          %hide frame
+  borderline west={2pt}{0pt}{ForestGreen},  %display left line
+  title=Definition \thetcbcounter: #1,
+}
+
+\newtcolorbox{greenline}{%
+  colframe=ForestGreen,  %frame color
+  colback=white,          %remove background color
+  left=1em,              %space on left side in box
+  enhanced,              %more options
+  frame hidden,          %hide frame
+  borderline west={2pt}{0pt}{ForestGreen},  %display left line
+}
+
+\newtcolorbox[auto counter, number within=section]{eks}[1][]{%
+  colframe=NavyBlue,  %frame color
+  colback=NavyBlue!5, %background color
+  colbacktitle=NavyBlue!25,    %background color for title
+  coltitle=NavyBlue!70!black,  %title color
+  fonttitle=\bfseries\sffamily, %title font
+  left=1em,            %space on left side in box,
+  enhanced,            %more options
+  frame hidden,        %hide frame
+  borderline west={2pt}{0pt}{NavyBlue},  %display left line
+  title=Eksempel \thetcbcounter: #1
+}
+
+\newtcolorbox{blueline}{%
+  colframe=NavyBlue,     %frame color
+  colback=white,         %remove background
+  left=1em,              %space on left side in box,
+  enhanced,              %more options
+  frame hidden,          %hide frame
+  borderline west={2pt}{0pt}{NavyBlue},  %display left line
+}
+
+\newtcolorbox{teo}[1][]{%
+  colframe=RawSienna,  %frame color
+  colback=RawSienna!5, %background color
+  colbacktitle=RawSienna!25,    %background color for title
+  coltitle=RawSienna!70!black,  %title color
+  fonttitle=\bfseries\sffamily, %title font
+  left=1em,              %space on left side in box,
+  enhanced,              %more options
+  frame hidden,          %hide frame
+  borderline west={2pt}{0pt}{RawSienna},  %display left line
+  title=Teori: #1,
+}
+
+\newtcolorbox[auto counter, number within=section]{sæt}[1][]{%
+  colframe=RawSienna,  %frame color
+  colback=RawSienna!5, %background color
+  colbacktitle=RawSienna!25,    %background color for title
+  coltitle=RawSienna!70!black,  %title color
+  fonttitle=\bfseries\sffamily, %title font
+  left=1em,              %space on left side in box,
+  enhanced,              %more options
+  frame hidden,          %hide frame
+  borderline west={2pt}{0pt}{RawSienna},  %display left line
+  title=Sætning \thetcbcounter: #1,
+}
+
+\newtcolorbox{redline}{%
+  colframe=RawSienna,  %frame color
+  colback=white,       %Remove background color
+  left=1em,            %space on left side in box,
+  enhanced,            %more options
+  frame hidden,        %hide frame
+  borderline west={2pt}{0pt}{RawSienna},  %display left line
+}
+
+\newtcolorbox{for}[1][]{%
+  colframe=NavyBlue,  %frame color
+  colback=NavyBlue!5, %background color
+  colbacktitle=NavyBlue!25,    %background color for title
+  coltitle=NavyBlue!70!black,  %title color
+  fonttitle=\bfseries\sffamily, %title font
+  left=1em,              %space on left side in box,
+  enhanced,              %more options
+  frame hidden,          %hide frame
+  borderline west={2pt}{0pt}{NavyBlue},  %display left line
+  title=Forklaring #1,
+}
+
+\newtcolorbox{bem}{%
+  colframe=NavyBlue,  %frame color
+  colback=NavyBlue!5, %background color
+  colbacktitle=NavyBlue!25,    %background color for title
+  coltitle=NavyBlue!70!black,  %title color
+  fonttitle=\bfseries\sffamily, %title font
+  left=1em,              %space on left side in box,
+  enhanced,              %more options
+  frame hidden,          %hide frame
+  borderline west={2pt}{0pt}{NavyBlue},  %display left line
+  title=Bemærkning:,
+}
+
+\makeatletter
+
+\newcommand{\opgave}[1]{%
+ \def\@opgave{#1}%
+ \subsection*{Opgave #1}
+}
+
+\makeatother
+
+%Format lim the same way in intext and in display
+\let\svlim\lim\def\lim{\svlim\limits}
+
+% horizontal rule
+\newcommand\hr{
+\noindent\rule[0.5ex]{\linewidth}{0.5pt}
+}
+
+\title{Titel}
+\author{Noah Rahbek Bigum Hansen}
+\date{27. Oktober 2024}
+
+\begin{document}
+
+\maketitle
+
+\begin{definition}
+  Dette er en definition. Jeg definerer $f(x) = \ln \left( x^{\frac{3}{2}}  \right) $
+\end{definition}
+
+\begin{greenline}
+  Her har jeg tegnet en grøn linje ved siden af.
+  \bigbreak
+  \bigbreak
+  \bigbreak
+  \bigbreak
+  \bigbreak
+  \bigbreak
+  Den fortsætter så langt jeg ønsker at den skal.
+\end{greenline}
+
+\begin{eks}
+  Dette er et eksempel.
+  F.eks. kan det være at jeg skriver en ligning som den gode Basse skriver på tavlen ned her
+\end{eks}
+
+\begin{blueline}
+  Her har jeg tegnet en blå linje ved siden af.
+  \bigbreak
+  \bigbreak
+  Denne fortsætter også så langt som jeg ønsker at den skal
+\end{blueline}
+
+\begin{teo}[Newtons 2. lov]
+  Herinde kan jeg skrive teorier op. F.eks. kan jeg skrive Newtons 2. lov: $F=ma$
+\end{teo}
+
+\begin{sæt}
+  Herinde kan jeg skrive sætninger. Det minder meget om almindelig tekst. :(
+\end{sæt}
+
+\begin{redline}
+  Om ikke han også kan med en meget
+  \bigbreak
+  \bigbreak
+  \bigbreak
+  \bigbreak  
+  lang rød linje?
+  Jeg kan også indsætte en vertikal linje 
+  Se selv.
+\end{redline}
+
+\begin{for}
+  Herinde kan jeg forklare ting. Eksempelvis kan jeg forklare at Brøndby er dårlige til fodbold.
+\end{for}
+
+\begin{bem}
+  Herinde bemærker jeg lige hvor lækker jeg egentligt er.
+\end{bem}
+
+\end{document}
