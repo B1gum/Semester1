@@ -1,6 +1,6 @@
 \lecture{2}{2. September 2024}{Integration}
 
-\section{Integration ved substitution (7.2)}
+\section{Integration ved substitution (7.2)} \label{afs:intsub}
 Integration ved substitution kan forstås som kædereglens inverse. 
 \begin{definition} [Integration ved substitution]
   Lad $f$ og $g$ være funktioner. Med substitutionen $u = g(x)$ er
@@ -85,7 +85,7 @@ Integration ved substitution kan forstås som kædereglens inverse.
   \[ 
   \int 2x \sqrt{16-x^2} \, \mathrm{d}x = -\int \sqrt{u} \mathrm{d}u = -\int u^{\frac{1}{2}} \mathrm{d}u
   .\]
-  Dette integral løses nu som normalt smo
+  Dette integral løses nu som normalt som
   \[ 
   -\int u^{\frac{1}{2}} \mathrm{d}u = -\frac{2}{3} u^{\frac{3}{2}} + c
   .\]
@@ -107,7 +107,7 @@ Integration ved substitution kan forstås som kædereglens inverse.
 
 \section{Delvis integration (8.1)}
 Delvis integration er produktreglens pendant på samme måde som integration ved substitution er kædereglens pendant.
-\begin{sæt} [Delvis integration]
+\begin{sæt} [Delvis integration] \label{afs:delint}
   Der gælder
   \[
     \int u(x)v'(x) = u(x)v(x) - \int u'(x)v(x) \, \mathrm{d}x
