@@ -180,7 +180,7 @@ Standardafvigelsen er en anden vigtig størrelse. Denne er relateret til varians
 Standardafvigelsen tager, så at sige, variansen ``tilbage til de \textit{rigtige} enheder''. 
 
 \section{Bernoulli- og binomialfordelingen}
-\begin{definition}[Bernoullifordelingen]
+\begin{definition}[Bernoullifordelingen] \label{afs:forber}
   En stokastisk variabel $X$ der kun antager værdierne 0 og 1 siges at være \textit{Bernoullifordelt} med parameter $p$ hvor
   \[ 
   p = P(X=1)
@@ -195,7 +195,7 @@ For $n = 1,2,\ldots $ og $i = 0,1,2,\ldots, n$ er
 .\]
 $\binom{n}{i}$ (\textit{$n$ choose $i$}) angiver antallet af delmængder med $i$ elementer i som kan udtrækkes af en mængde med $n$ elementer.
 
-\begin{definition}[Binomialfordelingen]
+\begin{definition}[Binomialfordelingen] \label{ads:forbin}
   Lad $0 \leq p \leq 1$ og $n = 1,2,3,\ldots$. En stokastisk variabel $X$ siges da at være \textit{binomialfordelt} med parametre (n, p) (hvor $p$ kaldes sandsynlighedsparameteren og $n$ kaldes antalsparameteren) hvis $X$ har sandsynlighedsfunktion givet som
   \[ 
   p(i) = \binom{n}{i}p^{i}(1-p)^{n-i}, \quad \text{for} i = 0,1,2,\ldots ,n
@@ -292,7 +292,7 @@ I det følgende vil vi finde et udtryk for middelværdien og variansen af binomi
 \end{eks}
 
 \section{Poissonfordelingen}
-\begin{definition}
+\begin{definition}[Poissonfordelingen] \label{afs:forpoi}
   Lad $\lambda > 0$. Så siges en stokastisk variabel $X$ at være \textit{poissonfordelt} med parameter $\lambda$ hvis sandsynlighedsfunktionen $p$ er givet ved
   \[ 
   p(i) = \frac{e^{-\lambda i}\lambda^{i}}{i!}
